@@ -1,4 +1,7 @@
 package osiedle;
 
-public class Osiedle {
+import java.io.Serializable;
+
+public class Osiedle implements Serializable {
+
 }
