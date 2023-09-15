@@ -1,4 +1,4 @@
-package osiedle;
+package osiedle.abstrakcyjne;
 
 import java.util.UUID;
 
