@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Developer extends Osoba{
-    Set<Osiedle> osiedla;
-    String nazwaFirmy;
+    private Set<Osiedle> osiedla;
+    private String nazwaFirmy;
 
     public Developer(String imie, String nazwisko, String pesel, Adres adres, Date dataUrodzenia, String nazwaFirmy) {
         super(imie, nazwisko, pesel, adres, dataUrodzenia);
