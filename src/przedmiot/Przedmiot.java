@@ -1,13 +1,13 @@
 package przedmiot;
 
-import osiedle.RozmiarPomieszczenia;
+import osiedle.Powierzchnia;
 
 public class Przedmiot {
     private String nazwa;
-    private RozmiarPomieszczenia rozmiarPomieszczenia;
+    private Powierzchnia powierzchnia;
 
-    public Przedmiot(String nazwa, RozmiarPomieszczenia rozmiarPomieszczenia) {
+    public Przedmiot(String nazwa, Powierzchnia powierzchnia) {
         this.nazwa = nazwa;
-        this.rozmiarPomieszczenia = rozmiarPomieszczenia;
+        this.powierzchnia = powierzchnia;
     }
 }

@@ -52,6 +52,9 @@ public class Blok {
         this.iloscMieszkan = iloscMieszkan;
     }
 
+    public void addMieszkanie(Mieszkanie mieszkanie){
+        this.mieszkania.add(mieszkanie);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,11 +1,11 @@
 package przedmiot.abstrakcyjne;
 
-import osiedle.RozmiarPomieszczenia;
+import osiedle.Powierzchnia;
 import przedmiot.Przedmiot;
 
 public abstract class Pojazd extends Przedmiot {
 
-    public Pojazd(String nazwa, RozmiarPomieszczenia rozmiarPomieszczenia) {
-        super(nazwa, rozmiarPomieszczenia);
+    public Pojazd(String nazwa, Powierzchnia powierzchnia) {
+        super(nazwa, powierzchnia);
     }
 }

@@ -1,6 +1,10 @@
 package osoba;
 
+import osiedle.abstrakcyjne.Miejsce;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Osoba {
     private String imie;
@@ -8,6 +12,9 @@ public class Osoba {
     private String pesel;
     private Adres adres;
     private Date dataUrodzenia;
+
+    private List<Miejsce> najmy;
+    private List<String> zadluzenia = new ArrayList<>(); // Lista plików z zadłużeniami
 
     public Osoba(String imie, String nazwisko, String pesel, Adres adres, Date dataUrodzenia) {
         this.imie = imie;
@@ -22,6 +29,8 @@ public class Osoba {
 
         this.adres = adres;
         this.dataUrodzenia = dataUrodzenia;
+        this.najmy = new ArrayList<>();
+        this.zadluzenia = new ArrayList<>();
     }
 
     public String getImie() {
@@ -62,6 +71,14 @@ public class Osoba {
 
     public void setDataUrodzenia(Date dataUrodzenia) {
         this.dataUrodzenia = dataUrodzenia;
+    }
+
+    public List<Miejsce> getNajmy() {
+        return najmy;
+    }
+
+    public void setNajmy(List<Miejsce> najmy) {
+        this.najmy = najmy;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package osiedle;
 
+import osoba.Osoba;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -10,11 +12,13 @@ public class Osiedle implements Serializable {
     private String nazwa;
     private String id;
     private Set<Blok> bloki;
+    private Set<Osoba> mieszkancy;
 
     public Osiedle(String nazwa) {
         this.nazwa = nazwa;
         this.id = UUID.randomUUID().toString();
         this.bloki = new HashSet<>();
+        this.mieszkancy = new HashSet<>();
     }
 
     public String getNazwa() {
@@ -47,6 +51,18 @@ public class Osiedle implements Serializable {
         } else {
             bloki.add(blok);
         }
+    }
+
+    public void usunBlok(Blok blok) {
+        bloki.remove(blok);
+    }
+
+    public Set<Osoba> getMieszkancy() {
+        return mieszkancy;
+    }
+
+    public void setMieszkancy(Set<Osoba> mieszkancy) {
+        this.mieszkancy = mieszkancy;
     }
 
     @Override

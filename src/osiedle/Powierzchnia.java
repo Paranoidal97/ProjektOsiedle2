@@ -1,13 +1,13 @@
 package osiedle;
 
-public class RozmiarPomieszczenia {
+public class Powierzchnia {
     private double objetosc;
 
-    public RozmiarPomieszczenia(double objetosc) {
+    public Powierzchnia(double objetosc) {
         this.objetosc = objetosc;
     }
 
-    public RozmiarPomieszczenia(double dlugosc, double szerokosc, double wysokosc) {
+    public Powierzchnia(double dlugosc, double szerokosc, double wysokosc) {
         this.objetosc = dlugosc * szerokosc * wysokosc;
     }
 

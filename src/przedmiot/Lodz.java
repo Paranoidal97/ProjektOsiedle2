@@ -1,14 +1,14 @@
 package przedmiot;
 
-import osiedle.RozmiarPomieszczenia;
+import osiedle.Powierzchnia;
 import przedmiot.abstrakcyjne.Pojazd;
 import przedmiot.enumy.TypLodzi;
 
 public class Lodz extends Pojazd {
     private TypLodzi typLodzi;
 
-    public Lodz(String nazwa, RozmiarPomieszczenia rozmiarPomieszczenia, TypLodzi typLodzi) {
-        super(nazwa, rozmiarPomieszczenia);
+    public Lodz(String nazwa, Powierzchnia powierzchnia, TypLodzi typLodzi) {
+        super(nazwa, powierzchnia);
         this.typLodzi = typLodzi;
     }
 }
