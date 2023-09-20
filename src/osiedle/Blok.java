@@ -1,47 +1,29 @@
 package osiedle;
 
+import osoba.Adres;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class Blok {
-    private String miasto;
-    private String ulica;
-    private String nrBudynku;
+    private Adres adres;
     private int iloscMieszkan;
 
     private Set<Mieszkanie> mieszkania;
 
-    public Blok(String miasto, String ulica, String nrBudynku, int iloscMieszkan) {
-        this.miasto = miasto;
-        this.ulica = ulica;
-        this.nrBudynku = nrBudynku;
+    public Blok(Adres adres, int iloscMieszkan) {
+        this.adres = adres;
         this.iloscMieszkan = iloscMieszkan;
         this.mieszkania = new HashSet<>();
     }
 
-    public String getMiasto() {
-        return miasto;
+    public Adres getAdres() {
+        return adres;
     }
 
-    public void setMiasto(String miasto) {
-        this.miasto = miasto;
-    }
-
-    public String getUlica() {
-        return ulica;
-    }
-
-    public void setUlica(String ulica) {
-        this.ulica = ulica;
-    }
-
-    public String getNrBudynku() {
-        return nrBudynku;
-    }
-
-    public void setNrBudynku(String nrBudynku) {
-        this.nrBudynku = nrBudynku;
+    public void setAdres(Adres adres) {
+        this.adres = adres;
     }
 
     public int getIloscMieszkan() {
@@ -52,29 +34,41 @@ public class Blok {
         this.iloscMieszkan = iloscMieszkan;
     }
 
-    public void addMieszkanie(Mieszkanie mieszkanie){
-        this.mieszkania.add(mieszkanie);
+    public Set<Mieszkanie> getMieszkania() {
+        return mieszkania;
     }
+
+    public void setMieszkania(Set<Mieszkanie> mieszkania) {
+        this.mieszkania = mieszkania;
+    }
+
+    public void addMieszkanie(Mieszkanie mieszkanie){
+        if(mieszkania.size() + 1 > iloscMieszkan){
+            System.out.println("Za duża liczba mieszkań");
+        } else {
+            this.mieszkania.add(mieszkanie);
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Blok blok = (Blok) o;
-        return Objects.equals(miasto, blok.miasto) && Objects.equals(ulica, blok.ulica) && Objects.equals(nrBudynku, blok.nrBudynku);
+        return Objects.equals(adres, blok.adres);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(miasto, ulica, nrBudynku);
+        return Objects.hash(adres);
     }
 
     @Override
     public String toString() {
         return "Blok{" +
-                "miasto='" + miasto + '\'' +
-                ", ulica='" + ulica + '\'' +
-                ", nrBudynku='" + nrBudynku + '\'' +
+                "adres=" + adres +
                 ", iloscMieszkan=" + iloscMieszkan +
+                ", mieszkania=" + mieszkania +
                 '}';
     }
 }

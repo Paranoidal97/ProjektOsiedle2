@@ -3,16 +3,21 @@ package osoba;
 public class Adres {
     private String ulica;
     private String numerDomu;
-    private String numerMieszkania;
     private String kodPocztowy;
     private String miasto;
 
-    public Adres(String ulica, String numerDomu, String numerMieszkania, String kodPocztowy, String miasto) {
+    private String numerMieszkania;
+
+    public Adres(String ulica, String numerDomu, String kodPocztowy, String miasto) {
         this.ulica = ulica;
         this.numerDomu = numerDomu;
-        this.numerMieszkania = numerMieszkania;
         this.kodPocztowy = kodPocztowy;
         this.miasto = miasto;
+    }
+
+    public Adres(String ulica, String numerDomu, String kodPocztowy, String miasto, String numerMieszkania) {
+        this(ulica, numerDomu, kodPocztowy, miasto);
+        this.numerMieszkania = numerMieszkania;
     }
 
     public String getUlica() {
@@ -31,14 +36,6 @@ public class Adres {
         this.numerDomu = numerDomu;
     }
 
-    public String getNumerMieszkania() {
-        return numerMieszkania;
-    }
-
-    public void setNumerMieszkania(String numerMieszkania) {
-        this.numerMieszkania = numerMieszkania;
-    }
-
     public String getKodPocztowy() {
         return kodPocztowy;
     }
@@ -55,8 +52,29 @@ public class Adres {
         this.miasto = miasto;
     }
 
+    public String getNumerMieszkania() {
+        return numerMieszkania;
+    }
+
+    public void setNumerMieszkania(String numerMieszkania) {
+        this.numerMieszkania = numerMieszkania;
+    }
+
     @Override
     public String toString() {
-        return ulica + " " + numerDomu + (numerMieszkania != null ? "/" + numerMieszkania : "") + ", " + kodPocztowy + " " + miasto;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Adres{");
+        stringBuilder.append("ulica='").append(ulica).append('\'');
+        stringBuilder.append(", numerDomu='").append(numerDomu).append('\'');
+        stringBuilder.append(", kodPocztowy='").append(kodPocztowy).append('\'');
+        stringBuilder.append(", miasto='").append(miasto).append('\'');
+
+        if (numerMieszkania != null) {
+            stringBuilder.append(", numerMieszkania='").append(numerMieszkania).append('\'');
+        }
+
+        stringBuilder.append('}');
+
+        return stringBuilder.toString();
     }
 }
