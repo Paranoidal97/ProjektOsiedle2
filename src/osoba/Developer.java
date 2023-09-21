@@ -10,8 +10,11 @@ public class Developer extends Osoba{
     private Set<Osiedle> osiedla;
     private String nazwaFirmy;
 
+    private Adres adres;
+
     public Developer(String imie, String nazwisko, String pesel, Adres adres, Date dataUrodzenia, String nazwaFirmy) {
-        super(imie, nazwisko, pesel, adres, dataUrodzenia);
+        super(imie, nazwisko, pesel, dataUrodzenia);
+        this.adres = adres;
         this.osiedla = new HashSet<>();
         this.nazwaFirmy = nazwaFirmy;
     }

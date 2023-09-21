@@ -1,7 +1,6 @@
 package osiedle;
 
 import osiedle.abstrakcyjne.Miejsce;
-import osoba.Najemca;
 import osoba.Osoba;
 
 import java.util.ArrayList;
@@ -33,20 +32,12 @@ public class Mieszkanie extends Miejsce {
     }
 
     public void zameldujOsobe(Osoba osoba) {
-        if (najemca == null) {
-            najemca = osoba;
-        } else {
-            System.out.println("Mieszkanie jest już wynajmowane przez inną osobę.");
-        }
+        wynajmujacy.add(osoba);
     }
 
     // Metoda do wymeldowania osoby z mieszkania
-    public void wymeldujOsobe() {
-        if (najemca != null) {
-            najemca = null;
-        } else {
-            System.out.println("Mieszkanie nie jest wynajmowane.");
-        }
+    public void wymeldujOsobe(Osoba osoba) {
+        wynajmujacy.remove(osoba);
     }
 
 }

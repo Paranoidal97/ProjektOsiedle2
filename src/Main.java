@@ -1,4 +1,6 @@
 import Helpers.StringToDate;
+import Service.MenuService;
+import Service.WynajemService;
 import osiedle.Blok;
 import osiedle.Mieszkanie;
 import osiedle.Osiedle;
@@ -11,6 +13,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        MenuService menuService = new MenuService();
+        WynajemService wynajemService = new WynajemService();
+
         StringToDate stringToDate = new StringToDate();
         Date data1 = StringToDate.StringtoDate("2000.11.30").get();
         Adres adres1 = new Adres("Pruszkowa", "4", "02-121", "Warszawa", "19a");
@@ -70,23 +75,30 @@ public class Main {
 
         // utwórz kilka osób
 
-        Osoba osoba1 = new Osoba("Jan", "Kowalski", "95010212345", new Date(95, 0, 2));
-        Osoba osoba2 = new Osoba("Anna", "Nowak", "88030123456", new Date(88, 2, 3));
-        Osoba osoba3 = new Osoba("Marek", "Wójcik", "75040134567", new Date(75, 3, 1));
-        Osoba osoba4 = new Osoba("Ewa", "Lis", "91050145678", new Date(91, 4, 1));
-        Osoba osoba5 = new Osoba("Alicja", "Kaczmarek", "86060156789", new Date(86, 5, 1));
-        Osoba osoba6 = new Osoba("Agnieszka", "Pawlak", "99070167890", new Date(99, 6, 1));
-        Osoba osoba7 = new Osoba("Tomasz", "Michalak", "81080178901", new Date(81, 7, 1));
-        Osoba osoba8 = new Osoba("Karolina", "Kwiatkowska", "92090189012", new Date(92, 8, 1));
-        Osoba osoba9 = new Osoba("Piotr", "Czajkowski", "80010190123", new Date(80, 0, 1));
-        Osoba osoba10 = new Osoba("Katarzyna", "Wojda", "93020201234", new Date(93, 1, 2));
+        Osoba osoba1 = new Osoba("Jan", "Kowalski", "89102145772", new Date(95, 0, 2));
+        Osoba osoba2 = new Osoba("Anna", "Nowak", "50071023512", new Date(88, 2, 3));
+        Osoba osoba3 = new Osoba("Marek", "Wójcik", "00291786119", new Date(75, 3, 1));
+        Osoba osoba4 = new Osoba("Ewa", "Lis", "72022633711", new Date(91, 4, 1));
+        Osoba osoba5 = new Osoba("Alicja", "Kaczmarek", "74082246849", new Date(86, 5, 1));
+        Osoba osoba6 = new Osoba("Agnieszka", "Pawlak", "69072529446", new Date(99, 6, 1));
+        Osoba osoba7 = new Osoba("Tomasz", "Michalak", "98031294783", new Date(81, 7, 1));
+        Osoba osoba8 = new Osoba("Karolina", "Kwiatkowska", "90050132585", new Date(92, 8, 1));
+        Osoba osoba9 = new Osoba("Piotr", "Czajkowski", "67082926431", new Date(80, 0, 1));
+        Osoba osoba10 = new Osoba("Katarzyna", "Wojda", "53120742561", new Date(93, 1, 2));
 
+        // przypisanie osob do mieszkan
+
+        wynajemService.zameldujOsobe(osoba2, mieszkanie1_1);
+        wynajemService.zameldujOsobe(osoba2, mieszkanie1_1); // test walidacji ustawiania najemcy
+
+        wynajemService.zameldujOsobe(osoba2, osoba3, mieszkanie1_1);
+        wynajemService.zameldujOsobe(osoba2, osoba3, mieszkanie1_1); // test czy mozna zameldowac ta sama osobe
+        wynajemService.zameldujOsobe(osoba4, osoba3, mieszkanie1_1); // test czy nie najemca moze kogos zameldowac
 
 
         Scanner scanner = new Scanner(System.in);
         boolean programRunning = true;
 
-        while (programRunning) {
             System.out.println("Menu:");
             System.out.println("1. Wybierz osobę");
             System.out.println("2. Wyświetl dane osoby");
@@ -98,13 +110,14 @@ public class Main {
             System.out.println("8. Zapisz stan osiedla do pliku");
             System.out.println("9. Zakończ program");
 
+        while (programRunning) {
 
             int choice = scanner.nextInt();
             scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    // Implementacja wyboru osoby
+                    menuService.showOsoby(developer1);
                     break;
                 case 2:
                     // Implementacja wyświetlania danych osoby
