@@ -10,13 +10,12 @@ public class Osoba {
     private String imie;
     private String nazwisko;
     private String pesel;
-    private Adres adres;
     private Date dataUrodzenia;
 
     private List<Miejsce> najmy;
     private List<String> zadluzenia = new ArrayList<>(); // Lista plików z zadłużeniami
 
-    public Osoba(String imie, String nazwisko, String pesel, Adres adres, Date dataUrodzenia) {
+    public Osoba(String imie, String nazwisko, String pesel, Date dataUrodzenia) {
         this.imie = imie;
         this.nazwisko = nazwisko;
 
@@ -26,8 +25,6 @@ public class Osoba {
         } else {
             throw new IllegalArgumentException("Nieprawidłowy numer pesel");
         }
-
-        this.adres = adres;
         this.dataUrodzenia = dataUrodzenia;
         this.najmy = new ArrayList<>();
         this.zadluzenia = new ArrayList<>();
@@ -57,14 +54,6 @@ public class Osoba {
         this.pesel = pesel;
     }
 
-    public Adres getAdres() {
-        return adres;
-    }
-
-    public void setAdres(Adres adres) {
-        this.adres = adres;
-    }
-
     public Date getDataUrodzenia() {
         return dataUrodzenia;
     }
@@ -87,7 +76,6 @@ public class Osoba {
                 "imie='" + imie + '\'' +
                 ", nazwisko='" + nazwisko + '\'' +
                 ", pesel='" + pesel + '\'' +
-                ", adres=" + adres +
                 ", dataUrodzenia=" + dataUrodzenia +
                 '}';
     }
